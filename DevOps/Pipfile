@@ -7,3 +7,5 @@ python_version = "3.6"
 
 [dev-packages]
 selenium = "*"
+pyjwt = "*"
+cryptography = "*"
