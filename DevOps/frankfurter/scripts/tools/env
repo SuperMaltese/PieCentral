@@ -39,10 +39,10 @@ purple="\e[1;35m"
 cyan="\e[1;36m"
 white="\e[1;37m"
 
-error=$red
-warning=$yellow
-success=$green
-info=$blue
+error="$red"
+warning="$yellow"
+success="$green"
+info="$blue"
 
 export PATH="$PATH:$frankfurter/scripts/install"
 export PATH="$PATH:$frankfurter/scripts/tools"
