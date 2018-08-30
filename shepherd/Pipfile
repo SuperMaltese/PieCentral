@@ -6,6 +6,8 @@ verify_ssl = true
 python_version = "3.7"
 
 [packages]
+google-api-python-client = "*"
+oauth2client = "*"
 pylint = "*"
 pyserial = "*"
 click = "*"
