@@ -83,10 +83,17 @@ def create_release(release_options, access_token):
     default_release_options.update(release_options)
     serialized_data = json.dumps(default_release_options).encode('utf-8')
     headers = {'Authorization': f'Bearer {access_token}'}
-    request_json(urljoin(
+    release = request_json(urljoin(
         GITHUB_API_BASE_URL,
         f'/repos/{options.owner}/{options.repo}/releases'),
         serialized_data, headers, 'POST')
+
+
+def upload_artifact(upload_url):
+    request_json(urljoin(
+        upload_url,
+        f'/repos/{options.owner}/{options.repo}/releases/'
+    ))
 
 
 def main():
