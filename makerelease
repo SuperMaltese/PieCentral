@@ -68,7 +68,7 @@ if [ $(prompt "Confirm release number?") ]; then
   now=$(date +%Y-%m-%dT%H%M%S)
   tag="$project/$next_release-$now"
   set_"$project"_version "$major" "$minor" "$patch"
-  # git tag "$tag"
+  git tag "$tag"
   echo -e $green"Created tag: $tag"$clear
 else
   echo -e $red"Next release number rejected. Aborting."$clear
