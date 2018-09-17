@@ -393,7 +393,7 @@ class StateManager: # pylint: disable=too-many-public-methods
         return error_message
 
     @staticmethod
-    def format_crash_message(request, exception, traceback):
+    def format_crash_message(request, exception, formatted_traceback):
         """
         Format a crash message for readability.
         """
@@ -401,7 +401,7 @@ class StateManager: # pylint: disable=too-many-public-methods
         Request: {}
         Exception data: {}
         {}
-        """.format(request, exception, traceback)
+        """.format(request, exception, formatted_traceback)
 
     def start(self):
         """
@@ -435,6 +435,7 @@ class StateManager: # pylint: disable=too-many-public-methods
             except Exception as e:
                 formatted_tb = traceback.format_exc()
                 self.bad_things_queue.put(BadThing(sys.exc_info(),
-                                                   self.format_crash_message(request, e, formatted_tb),
+                                                   self.format_crash_message(request, e,
+                                                                             formatted_tb),
                                                    event=BAD_EVENTS.STATE_MANAGER_CRASH,
                                                    printStackTrace=True))
