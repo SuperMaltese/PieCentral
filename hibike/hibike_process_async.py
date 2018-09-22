@@ -142,7 +142,6 @@ class SmartSensorProtocol(asyncio.Protocol):
             pending.remove(self.transport.serial.name)
 
         event_loop.create_task(self.send_messages())
-        event_loop.create_task(self.process_buffer(event_loop))
         event_loop.create_task(self.recv_messages())
         event_loop.create_task(register_sensor())
 
